@@ -25,14 +25,22 @@ def get_sales_data():
     """
     Get sales figures input from the user
     """
-    print("Please enter sales data from the last market.")
-    print("Data should be six numbers, separated by commas.")
-    print("Example: 10, 20, 30, 40, 50, 60\n")
-    data_str = input("Enter your data here: ")
-    sales_data = data_str.split(",")
-    validate_data(sales_data)
-    #print(sales_data)
-    #print(f"The data provided is {data_str} ")
+    while True:
+        print("Please enter sales data from the last market.")
+        print("Data should be six numbers, separated by commas.")
+        print("Example: 10, 20, 30, 40, 50, 60\n")
+        
+        data_str = input("Enter your data here: ")
+        
+        sales_data = data_str.split(",")
+        
+        if validate_data(sales_data):
+            print("Data is valid!")
+            break
+        #print(sales_data)
+        #print(f"The data provided is {data_str} ")
+    
+    return sales_data
 
 def validate_data(values):
     """
@@ -45,11 +53,25 @@ def validate_data(values):
             raise ValueError(
             f'Exactly six values required, you provided {len(values)}'
             )
+        
+
     except ValueError as e:
         print(f'Invalid data: {e}, please try again\n')
+        return False
 
+    return True
 
-get_sales_data()
+def update_sales_worksheet(data):
+    """
+    update sales worksheet, add new row with the list
+    """
+    print('Updating sales worksheet...\n')
+    sales_worksheet = SHEET.worksheet('sales')
+    sales_worksheet.append_row(data)
+    print('Sales worksheet updated!\n')
+
+data = get_sales_data()
 # run in command line - python3 run.py
 
- 
+sales_data = [int(num) for num in data]
+update_sales_worksheet(sales_data)
