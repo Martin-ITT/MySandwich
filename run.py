@@ -114,6 +114,20 @@ def calculate_surplus_data(sales_row):
     #print(f'stock: {stock_row}')
     #print(f'sales: {sales_row}')
 
+def get_last_5_entries_sales():
+    """
+    Collects collumns of data from las 5 sales from sales worksheet and return as list of list
+    """
+    sales = SHEET.worksheet("sales")
+    #column = sales.col_values(3)
+
+    columns = []
+    for ind in range(1, 7):
+        column = sales.col_values(ind)
+        #print(column)
+        columns.append(column[-5:])
+    return columns
+
 def main():
     """
     run all program functions
@@ -129,5 +143,6 @@ def main():
 
 
 print('Welcome to sandwich data automation')
-main()
+#main()
 # run in command line - python3 run.py
+sales_columns = get_last_5_entries_sales()
