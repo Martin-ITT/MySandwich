@@ -160,7 +160,22 @@ def main():
     stock_data = calculate_stock_data(sales_columns)
     update_worksheet(stock_data, 'stock')
     print(stock_data)
+    return stock_data
 
 print('Welcome to sandwich data automation')
-main()
+stock_data = main()
 # run in command line - python3 run.py
+
+def get_stock_values(data):
+    """
+    get sandwich names and print how many to be prepared for next day
+    """
+    headings = []
+    for ind in range(1, 7):
+        heading = SHEET.worksheet("stock").col_values(ind)
+        headings.append(heading[0])
+
+    print_data = dict(zip(headings, data))
+    print(f'For tommorow prepare : {print_data}')
+
+get_stock_values(stock_data)

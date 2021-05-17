@@ -1,0 +1,38 @@
+Python Essentials Walkthrough Challenge
+Before starting this challenge, please ensure you have watched the Challenge Introduction video in the previous unit very carefully, as it contains some important information about how this challenge differs from previous ones you have done.
+ 
+In the Love Sandwiches project we built the code to calculate and insert our recommended stock values into the stock worksheet. In this challenge you will build a dictionary, where the keys are the sandwich headings pulled from the spreadsheet, and the values are the calculated stock data.
+ 
+In particular, you will:
+Request data from a worksheet
+Build a dictionary
+Print the dictionary to the terminal for the user
+Result
+Your last 3 lines of output should look similar to the image below, the number values will vary depending on what data is in your spreadsheet.
+
+
+
+Challenge Submission
+Whenever you complete a challenge step, view the result by clicking on the run button above the code editor and viewing the output in the result window.
+Test your answer by clicking on the " run tests " button that is next to the run button.
+A feedback panel will pop up to show you your result.
+If your code passes its associated test (will be colored green) move on to the next challenge step.
+If code fails its associated test (colored red), click on the failed tests to reveal a hint as to what might have gone wrong.
+Fix the error before moving on to the next challenge step
+Once your code passes all the tests (will be colored green) go ahead and submit your answer by first clicking the submit button on the top right of the CodeIt window then clicking submit again on the resulting popup window.
+Move on to the next unit in the course.
+Steps
+Add your credentials to the creds.json file
+Within main.py create a function named get_stock_values
+The function should take a parameter named: data
+Within the function create a variable named: headings.
+Using what you have learned, reach out to your worksheet and retrieve the headings and assign them to the variable named: headings (this can be accomplished in a single line of code if you want to challenge yourself further)
+With that done you will need to create a dictionary, using the headings values for the dictionary keys and the data values for the dictionary values and return this from your function.
+This can be achieved by either creating a dictionary using a for loop, or by using a dictionary comprehension.
+ 
+Create a variable named stock_values
+Assign it the return value from calling the function get_stock_values and passing it in the variable named stock_data
+Print the stock_data to the terminal, (This is for you to see the output and is not tested for)
+Tips
+If you’re stuck, go back over the supporting content, or ask your fellow students on Slack.
+ 
